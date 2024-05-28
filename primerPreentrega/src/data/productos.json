@@ -1,0 +1,13 @@
+[
+  {
+    "title": "Nuevo producto 2",
+    "description": "Descripción del nuevo producto 2",
+    "code": "ABC123",
+    "price": 15.99,
+    "stock": 150,
+    "category": "Electrónica",
+    "id": "8wrrhx4cv",
+    "status": true,
+    "thumbnails": []
+  }
+]
