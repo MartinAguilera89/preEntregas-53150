@@ -3,6 +3,16 @@ import cartModel from "../dao/models/cart.model.js";
 
 const cartRouter = Router();
 
+cartRouter.get("/", async (req, res) => {
+  try {
+    const carts = await cartModel.find();
+    res.json(carts);
+  } catch (error) {
+    console.error("Error al obtener los carritos:", error);
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
+});
+
 cartRouter.get("/:cid", async (req, res) => {
   try {
     const cartId = req.params.cid;

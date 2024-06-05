@@ -41,6 +41,21 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Ruta para agregar varios productos
+router.post('/add', async (req, res) => {
+  const productsData = req.body;
+  try {
+    const newProducts = await Promise.all(productsData.map(async (productData) => {
+      return await ProductManager.addProduct(productData);
+    }));
+    res.status(201).json(newProducts);
+  } catch (error) {
+    console.error('Error al agregar los productos:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+
 // Ruta para actualizar un producto existente
 router.put('/:id', async (req, res) => {
   const productId = req.params.id;

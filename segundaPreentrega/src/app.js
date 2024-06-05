@@ -59,7 +59,11 @@ app.get('/chat', (req, res) => {
 });
 
 app.get('/products', (req, res) => {
-    res.render('products');
+    res.render('products',products);
+});
+
+app.get('/carts', (req, res) => {
+    res.render('carts');
 });
 
 server.listen(PORT, () => {
